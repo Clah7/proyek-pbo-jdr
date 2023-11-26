@@ -2,30 +2,26 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.check.LoginController">
    <children>
-      <Button fx:id="loginButton" layoutX="431.0" layoutY="434.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="324.0" style="-fx-background-color: #000;" text="Login" textFill="WHITE">
+      <Button fx:id="loginButton" layoutX="431.0" layoutY="434.0" mnemonicParsing="false" onAction="#loginButtonOnAction" prefHeight="48.0" prefWidth="324.0" style="-fx-background-color: #000;" text="Login" textFill="WHITE">
          <font>
             <Font name="Arial" size="18.0" />
          </font>
       </Button>
-      <Button fx:id="exitButton" layoutX="698.0" layoutY="23.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="72.0" style="-fx-background-color: #000;" text="Exit" textFill="WHITE">
+      <Button fx:id="exitButton" layoutX="698.0" layoutY="23.0" mnemonicParsing="false" onAction="#exitButtonOnAction" prefHeight="39.0" prefWidth="72.0" style="-fx-background-color: #000;" text="Exit" textFill="WHITE">
          <font>
             <Font name="Arial" size="16.0" />
          </font>
       </Button>
-      <TextField fx:id="passField" layoutX="431.0" layoutY="313.0" prefHeight="48.0" prefWidth="324.0" style="-fx-background-color: #FFFF; -fx-border-color: #CCC;">
-         <font>
-            <Font name="Arial" size="16.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="unameField" layoutX="431.0" layoutY="222.0" prefHeight="48.0" prefWidth="324.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #CCC;">
+      <TextField fx:id="usernameTextField" layoutX="431.0" layoutY="222.0" prefHeight="48.0" prefWidth="324.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #CCC;">
          <font>
             <Font name="Arial" size="16.0" />
          </font>
@@ -40,9 +36,9 @@
             <Font name="Arial" size="16.0" />
          </font>
       </Label>
-      <ImageView fitHeight="600.0" fitWidth="390.0" opacity="0.5" pickOnBounds="true">
+      <ImageView fitHeight="600.0" fitWidth="390.0" opacity="0.87" pickOnBounds="true">
          <image>
-            <Image url="/library.jpg" />
+            <Image url="@Content/library.jpg" />
          </image>
       </ImageView>
       <Label layoutX="497.0" layoutY="91.0" text="Library JDR">
@@ -55,5 +51,15 @@
             <Font name="Arial" size="14.0" />
          </font>
       </Label>
+      <Label fx:id="loginMessageLabel" layoutX="433.0" layoutY="387.0" prefHeight="17.0" prefWidth="324.0" textFill="RED">
+         <font>
+            <Font name="Arial" size="16.0" />
+         </font>
+      </Label>
+      <PasswordField fx:id="passwordPasswordField" layoutX="433.0" layoutY="313.0" prefHeight="48.0" prefWidth="324.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </PasswordField>
    </children>
 </AnchorPane>
