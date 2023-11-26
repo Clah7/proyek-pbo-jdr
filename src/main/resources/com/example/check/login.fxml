@@ -3,57 +3,57 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #1e1e1e;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.check.LoginController">
-    <children>
-        <Pane prefHeight="600.0" prefWidth="390.0" style="-fx-background-color: #000;">
-            <children>
-                <Label layoutX="30.0" layoutY="258.0" prefHeight="56.0" prefWidth="330.0" text="Toko Buku JDR" textFill="#ffa800">
-                    <font>
-                        <Font name="Baskerville Old Face" size="48.0" />
-                    </font>
-                </Label>
-                <Label layoutX="21.0" layoutY="315.0" prefHeight="56.0" prefWidth="349.0" text="Where You Can Learn Everything" textFill="#ffa800">
-                    <font>
-                        <Font name="Baskerville Old Face" size="24.0" />
-                    </font>
-                </Label>
-            </children>
-        </Pane>
-        <Button fx:id="loginButton" layoutX="420.0" layoutY="438.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="324.0" style="-fx-background-color: #FFA800;" text="Login">
-            <font>
-                <Font name="Arial" size="18.0" />
-            </font>
-        </Button>
-        <Button fx:id="exitButton" layoutX="672.0" layoutY="33.0" mnemonicParsing="false" onAction="#exitButtonOnAction" prefHeight="39.0" prefWidth="72.0" style="-fx-background-color: #FFA800;" text="Exit">
-            <font>
-                <Font name="Arial" size="18.0" />
-            </font>
-        </Button>
-        <TextField fx:id="passField" layoutX="420.0" layoutY="324.0" prefHeight="48.0" prefWidth="324.0" />
-        <TextField fx:id="usernameField" layoutX="420.0" layoutY="183.0" prefHeight="48.0" prefWidth="324.0" />
-        <Label layoutX="420.0" layoutY="155.0" text="Username" textFill="#ffa800">
-            <font>
-                <Font name="Arial" size="18.0" />
-            </font>
-        </Label>
-        <Label layoutX="420.0" layoutY="297.0" text="Password" textFill="#ffa800">
-            <font>
-                <Font name="Arial" size="18.0" />
-            </font>
-        </Label>
-        <Label layoutX="460.0" layoutY="501.0" text="Don't have an account?" textFill="WHITE">
-            <font>
-                <Font name="Arial" size="14.0" />
-            </font>
-        </Label>
-        <Button layoutX="616.0" layoutY="496.0" mnemonicParsing="false" style="-fx-background-color: #1e1e1e;" text="Register" textFill="#ffa800">
-            <font>
-                <Font name="Arial" size="14.0" />
-            </font>
-        </Button>
-    </children>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button fx:id="loginButton" layoutX="431.0" layoutY="434.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="324.0" style="-fx-background-color: #000;" text="Login" textFill="WHITE">
+         <font>
+            <Font name="Arial" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="exitButton" layoutX="698.0" layoutY="23.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="72.0" style="-fx-background-color: #000;" text="Exit" textFill="WHITE">
+         <font>
+            <Font name="Arial" size="16.0" />
+         </font>
+      </Button>
+      <TextField fx:id="passField" layoutX="431.0" layoutY="313.0" prefHeight="48.0" prefWidth="324.0" style="-fx-background-color: #FFFF; -fx-border-color: #CCC;">
+         <font>
+            <Font name="Arial" size="16.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="unameField" layoutX="431.0" layoutY="222.0" prefHeight="48.0" prefWidth="324.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #CCC;">
+         <font>
+            <Font name="Arial" size="16.0" />
+         </font>
+      </TextField>
+      <Label layoutX="431.0" layoutY="202.0" text="Username">
+         <font>
+            <Font name="Arial" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="433.0" layoutY="293.0" text="Password">
+         <font>
+            <Font name="Arial" size="16.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="600.0" fitWidth="390.0" opacity="0.5" pickOnBounds="true">
+         <image>
+            <Image url="/library.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="497.0" layoutY="91.0" text="Library JDR">
+         <font>
+            <Font name="Arial" size="36.0" />
+         </font>
+      </Label>
+      <Label layoutX="488.0" layoutY="141.0" text="Where You Can Learn Everything">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </Label>
+   </children>
 </AnchorPane>
