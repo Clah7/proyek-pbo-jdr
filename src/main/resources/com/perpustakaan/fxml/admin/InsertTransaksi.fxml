@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.*?>
+
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.image.Image?>
+<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="575.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <ImageView fitHeight="581.0" fitWidth="403.0" layoutY="-9.0" opacity="0.7" pickOnBounds="true" preserveRatio="true" smooth="false">
+            <image>
+                <Image url="@../../images/transaksi.jpg" />
+            </image>
+        </ImageView>
+        <ImageView fitHeight="572.0" fitWidth="412.0" layoutX="388.0" opacity="0.15" pickOnBounds="true">
+            <image>
+                <Image url="@../../images/backgroundTransaksi.jpg" />
+            </image>
+        </ImageView>
+        <Pane layoutX="109.0" layoutY="32.0" prefHeight="508.0" prefWidth="419.0" style="-fx-background-color: #1e1e1e; -fx-background-radius: 16px;">
+            <children>
+                <Label layoutX="32.0" layoutY="31.0" text="Input Transaksi" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="24.0" />
+                    </font>
+                </Label>
+                <ComboBox fx:id="comboUser" layoutX="26.0" layoutY="117.0" prefHeight="40.0" prefWidth="360.0" style="-fx-background-color: white;" />
+                <Button layoutX="141.0" layoutY="444.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="140.0" style="-fx-background-color: #3BDAA1;" text="Pinjam" textFill="WHITE">
+                    <font>
+                        <Font name="Arial Bold" size="18.0" />
+                    </font>
+                </Button>
+                <DatePicker fx:id="tanggalPinjamDate" layoutX="26.0" layoutY="283.0" prefHeight="40.0" prefWidth="360.0" style="-fx-background-color: white;" />
+                <ComboBox fx:id="comboUser1" layoutX="26.0" layoutY="203.0" prefHeight="40.0" prefWidth="360.0" style="-fx-background-color: white;" />
+                <Label layoutX="26.0" layoutY="101.0" text="Nama Pengguna" textFill="WHITE">
+                    <font>
+                        <Font name="Arial" size="14.0" />
+                    </font>
+                </Label>
+                <Label layoutX="26.0" layoutY="187.0" text="Nama Buku" textFill="WHITE">
+                    <font>
+                        <Font name="Arial" size="14.0" />
+                    </font>
+                </Label>
+                <Label layoutX="26.0" layoutY="267.0" text="Tanggal Peminjaman" textFill="WHITE">
+                    <font>
+                        <Font name="Arial" size="14.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="lamaPinjamField" layoutX="26.0" layoutY="365.0" prefHeight="41.0" prefWidth="360.0" />
+                <Label layoutX="26.0" layoutY="349.0" text="Lama Peminjaman" textFill="WHITE">
+                    <font>
+                        <Font name="Arial" size="14.0" />
+                    </font>
+                </Label>
+            </children>
+        </Pane>
+        <Pane layoutX="752.0" prefHeight="418.0" prefWidth="48.0" style="-fx-background-color: #1e1e1e;" />
+        <Pane layoutX="704.0" layoutY="-9.0" prefHeight="183.0" prefWidth="48.0" style="-fx-background-color: #333333;" />
+        <Label layoutX="563.0" layoutY="450.0">
+            <font>
+                <Font name="Arial" size="14.0" />
+            </font>
+        </Label>
+    </children>
+</AnchorPane>

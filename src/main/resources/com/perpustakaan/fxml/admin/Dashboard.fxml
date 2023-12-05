@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="content_pane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <Pane fx:id="jumlahBukuPane" layoutX="239.0" layoutY="85.0" prefHeight="134.0" prefWidth="190.0"
+              style="-fx-background-color: #FF8933; -fx-background-radius: 24px;">
+            <children>
+                <Label layoutX="15.0" layoutY="21.0" text="Jumlah Buku Dipinjam" textAlignment="CENTER"
+                       textFill="WHITE">
+                    <font>
+                        <Font name="Arial" size="16.0"/>
+                    </font>
+                </Label>
+                <Label fx:id="countBukuLabel" layoutX="139.0" layoutY="41.0" prefHeight="93.0" prefWidth="33.0"
+                       text="0" textAlignment="RIGHT" textFill="WHITE">
+                    <font>
+                        <Font size="64.0"/>
+                    </font>
+                </Label>
+            </children>
+        </Pane>
+        <Pane fx:id="jumlahBukuPane1" layoutX="451.0" layoutY="85.0" prefHeight="134.0" prefWidth="323.0"
+              style="-fx-background-color: #3A59C7; -fx-background-radius: 24px;">
+            <children>
+                <Label layoutX="27.0" layoutY="21.0" text="Jumlah Buku yang Belum Dikembalikan"
+                       textAlignment="CENTER" textFill="WHITE">
+                    <font>
+                        <Font name="Arial" size="16.0"/>
+                    </font>
+                </Label>
+                <Label fx:id="countBukuLabel1" layoutX="267.0" layoutY="41.0" prefHeight="93.0" prefWidth="33.0"
+                       text="0" textAlignment="RIGHT" textFill="WHITE">
+                    <font>
+                        <Font size="64.0"/>
+                    </font>
+                </Label>
+            </children>
+        </Pane>
+        <TextField layoutX="25.0" layoutY="238.0" prefHeight="46.0" prefWidth="750.0"
+                   style="-fx-background-color: transparent; -fx-border-color: #ccc; -fx-border-radius: 24px;"/>
+        <TableView fx:id="tableBuku" fixedCellSize="0.0" layoutX="25.0" layoutY="301.0" prefHeight="246.0"
+                   prefWidth="750.0" stylesheets="@../../styling/style.css">
+            <columns>
+                <TableColumn prefWidth="75.0" text="ID"/>
+                <TableColumn prefWidth="75.0" text="Nama"/>
+                <TableColumn prefWidth="75.0" text="Tanggal Pinjam"/>
+                <TableColumn prefWidth="75.0" text="Tanggal Kembali"/>
+                <TableColumn prefWidth="75.0" text="Status"/>
+            </columns>
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+            </columnResizePolicy>
+        </TableView>
+        <Label layoutX="25.0" layoutY="23.0" text="Home">
+            <font>
+                <Font name="Arial Bold" size="36.0"/>
+            </font>
+        </Label>
+        <Pane fx:id="jumlahBukuPane2" layoutX="25.0" layoutY="85.0" prefHeight="134.0" prefWidth="190.0"
+              style="-fx-background-color: #3BDAA1; -fx-background-radius: 24px;">
+            <children>
+                <Label layoutX="45.0" layoutY="21.0" text="Jumlah Pengguna" textAlignment="CENTER" textFill="WHITE">
+                    <font>
+                        <Font name="Arial" size="16.0"/>
+                    </font>
+                </Label>
+                <Label fx:id="countBukuLabel2" layoutX="139.0" layoutY="41.0" prefHeight="93.0" prefWidth="33.0"
+                       text="0" textAlignment="RIGHT" textFill="WHITE">
+                    <font>
+                        <Font size="64.0"/>
+                    </font>
+                </Label>
+            </children>
+        </Pane>
+    </children>
+</AnchorPane>

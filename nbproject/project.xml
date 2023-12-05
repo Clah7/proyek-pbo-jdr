@@ -2,7 +2,7 @@
     <type>org.netbeans.modules.java.j2seproject</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/j2se-project/3">
-            <name>Check</name>
+            <name>Perpustakaan</name>
             <source-roots>
                 <root id="src.java.dir" name="java"/>
                 <root id="src.resources.dir" name="resources"/>
