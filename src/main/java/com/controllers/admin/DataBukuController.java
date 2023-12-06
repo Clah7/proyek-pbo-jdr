@@ -37,6 +37,8 @@ public class DataBukuController implements Initializable {
     @FXML
     private TextField txtNamaBuku;
     @FXML
+    private TextField searchField;
+    @FXML
     Label lblStatus;
     @FXML
     private TableView<Buku> tblData;
@@ -68,7 +70,11 @@ public class DataBukuController implements Initializable {
         btnDeleteBuku.setDisable(true);
         btnUpdateBuku.setDisable(true);
 
-        fetRowList();
+        fetRowList("");
+
+        searchField.textProperty().addListener((observable, oldValue, newValue) -> {
+            fetRowList(newValue);
+        });
     }
 
     @FXML
@@ -114,7 +120,6 @@ public class DataBukuController implements Initializable {
         }
     }
 
-
     private String addBuku() {
         try {
             String st = "INSERT INTO buku VALUES (?,?,?,?,?)";
@@ -129,7 +134,7 @@ public class DataBukuController implements Initializable {
             lblStatus.setTextFill(Color.GREEN);
             lblStatus.setText("Added Successfully");
 
-            fetRowList();
+            fetRowList("");
             clearFields();
             return "Success";
 
@@ -178,7 +183,7 @@ public class DataBukuController implements Initializable {
             lblStatus.setTextFill(Color.GREEN);
             lblStatus.setText("Updated Successfully");
 
-            fetRowList();
+            fetRowList("");
             clearFields();
             return "Success";
 
@@ -220,7 +225,7 @@ public class DataBukuController implements Initializable {
             lblStatus.setTextFill(Color.GREEN);
             lblStatus.setText("Deleted Successfully");
 
-            fetRowList();
+            fetRowList("");
             clearFields();
             return "Success";
         } catch (SQLException ex) {
@@ -234,7 +239,7 @@ public class DataBukuController implements Initializable {
     private ObservableList<Buku> data;
     String SQL = "SELECT * from buku";
 
-    public void fetRowList() {
+    public void fetRowList(String keyword) {
         data = FXCollections.observableArrayList();
         ResultSet rs;
         try {
@@ -248,7 +253,9 @@ public class DataBukuController implements Initializable {
                 buku.setPenerbit(rs.getString("penerbit"));
                 buku.setTahunTerbit(rs.getInt("tahun_terbit"));
 
-                data.add(buku);
+                if (bukuContainsKeyword(buku, keyword)) {
+                    data.add(buku);
+                }
             }
 
             colIdBuku.setCellValueFactory(new PropertyValueFactory<>("idBuku"));
@@ -261,5 +268,14 @@ public class DataBukuController implements Initializable {
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
         }
+    }
+
+    private boolean bukuContainsKeyword(Buku buku, String keyword) {
+        String lowerCaseKeyword = keyword.toLowerCase();
+        return buku.getIdBuku().toLowerCase().contains(lowerCaseKeyword) ||
+                buku.getNamaBuku().toLowerCase().contains(lowerCaseKeyword) ||
+                buku.getPenulis().toLowerCase().contains(lowerCaseKeyword) ||
+                buku.getPenerbit().toLowerCase().contains(lowerCaseKeyword) ||
+                String.valueOf(buku.getTahunTerbit()).contains(lowerCaseKeyword);
     }
 }

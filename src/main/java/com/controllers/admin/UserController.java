@@ -37,12 +37,11 @@ public class UserController implements Initializable {
     @FXML
     private TextField txtKode;
     @FXML
+    private TextField searchField;
+    @FXML
     Label lblStatus;
     @FXML
     private TableView<User> tblData;
-
-    @FXML
-    private TableColumn<User, String> colIdUser;
 
     @FXML
     private TableColumn<User, String> colUsername;
@@ -68,7 +67,11 @@ public class UserController implements Initializable {
         btnDeleteUser.setDisable(true);
         btnUpdateUser.setDisable(true);
 
-        fetRowList();
+        fetRowList("");
+
+        searchField.textProperty().addListener((observable, oldValue, newValue) -> {
+            fetRowList(newValue);
+        });
     }
 
     @FXML
@@ -128,7 +131,7 @@ public class UserController implements Initializable {
             lblStatus.setTextFill(Color.GREEN);
             lblStatus.setText("Added Successfully");
 
-            fetRowList();
+            fetRowList("");
             clearFields();
             return "Success";
 
@@ -177,7 +180,7 @@ public class UserController implements Initializable {
             lblStatus.setTextFill(Color.GREEN);
             lblStatus.setText("Updated Successfully");
 
-            fetRowList();
+            fetRowList("");
             clearFields();
             return "Success";
 
@@ -219,7 +222,7 @@ public class UserController implements Initializable {
             lblStatus.setTextFill(Color.GREEN);
             lblStatus.setText("Deleted Successfully");
 
-            fetRowList();
+            fetRowList("");
             clearFields();
             return "Success";
         } catch (SQLException ex) {
@@ -233,7 +236,7 @@ public class UserController implements Initializable {
     private ObservableList<User> data;
     String SQL = "SELECT * from user";
 
-    public void fetRowList() {
+    private void fetRowList(String keyword) {
         data = FXCollections.observableArrayList();
         ResultSet rs;
         try {
@@ -246,10 +249,12 @@ public class UserController implements Initializable {
                 user.setAlamat(rs.getString("alamat"));
                 user.setKode(String.valueOf(rs.getInt("kode")));
 
-                data.add(user);
+                // Filter the data based on the keyword
+                if (userContainsKeyword(user, keyword)) {
+                    data.add(user);
+                }
             }
 
-            colIdUser.setCellValueFactory(new PropertyValueFactory<>("idUser"));
             colUsername.setCellValueFactory(new PropertyValueFactory<>("username"));
             colNama.setCellValueFactory(new PropertyValueFactory<>("namaLengkap"));
             colAlamat.setCellValueFactory(new PropertyValueFactory<>("alamat"));
@@ -259,5 +264,13 @@ public class UserController implements Initializable {
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
         }
+    }
+
+    private boolean userContainsKeyword(User user, String keyword) {
+        String lowerCaseKeyword = keyword.toLowerCase();
+        return user.getUsername().toLowerCase().contains(lowerCaseKeyword) ||
+                user.getNamaLengkap().toLowerCase().contains(lowerCaseKeyword) ||
+                user.getAlamat().toLowerCase().contains(lowerCaseKeyword) ||
+                user.getKode().contains(lowerCaseKeyword);
     }
 }
