@@ -1,36 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="content_pane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="content_pane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.admin.UserController">
     <children>
-        <TextField fx:id="searchField" layoutX="25.0" layoutY="184.0" prefHeight="46.0" prefWidth="740.0" style="-fx-background-color: transparent; -fx-border-color: #ccc; -fx-border-radius: 24px;" />
-        <TableView fx:id="tableBuku" fixedCellSize="0.0" layoutX="25.0" layoutY="255.0" prefHeight="292.0" prefWidth="750.0" stylesheets="@../../styling/style.css">
+        <TextField fx:id="searchField" layoutX="275.0" layoutY="195.0" prefHeight="35.0" prefWidth="490.0" style="-fx-background-color: transparent; -fx-border-color: #ccc; -fx-border-radius: 24px;" />
+        <TableView fx:id="tblData" fixedCellSize="0.0" layoutX="25.0" layoutY="255.0" onMouseClicked="#handleTableClick" prefHeight="292.0" prefWidth="750.0" stylesheets="@../../styling/style.css">
             <columns>
-                <TableColumn prefWidth="75.0" text="Id User" />
-                <TableColumn prefWidth="75.0" text="Username" />
-                <TableColumn prefWidth="75.0" text="Nama Lengkap" />
-                <TableColumn prefWidth="75.0" text="Alamat" />
-                <TableColumn prefWidth="75.0" text="Kode" />
+                <TableColumn fx:id="colUsername" prefWidth="75.0" text="Username" />
+                <TableColumn fx:id="colNama" prefWidth="75.0" text="Nama Lengkap" />
+                <TableColumn fx:id="colAlamat" prefWidth="75.0" text="Alamat" />
+                <TableColumn fx:id="colKode" prefWidth="75.0" text="Kode" />
             </columns>
             <columnResizePolicy>
                 <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
             </columnResizePolicy>
         </TableView>
-        <Button fx:id="btnUpdate" layoutX="186.0" layoutY="118.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="134.0" style="-fx-background-color: #1e1e1e; -fx-background-radius: 12px;" text="Edit" textFill="WHITE">
+        <Button fx:id="btnUpdateUser" layoutX="30.0" layoutY="195.0" mnemonicParsing="false" onMouseClicked="#handleUpdate" prefHeight="35.0" prefWidth="98.0" style="-fx-background-color: #1e1e1e; -fx-background-radius: 12px;" text="Update" textFill="WHITE">
             <font>
                 <Font name="Arial Bold" size="14.0" />
             </font>
         </Button>
-      <Button fx:id="btnUpdate1" layoutX="25.0" layoutY="118.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="134.0" style="-fx-background-color: #1e1e1e; -fx-background-radius: 12px;" text="Tambah" textFill="WHITE">
+        <TextField fx:id="txtUsername" layoutX="33.0" layoutY="34.0" prefHeight="35.0" prefWidth="185.0" style="-fx-background-color: #EBECF0; -fx-border-color: #CCC; -fx-border-radius: 12px; -fx-background-radius: 12px;" />
+        <Button fx:id="btnDeleteUser" layoutX="152.0" layoutY="195.0" mnemonicParsing="false" onMouseClicked="#handleDelete" prefHeight="35.0" prefWidth="98.0" style="-fx-background-color: #1e1e1e; -fx-background-radius: 12px;" text="Delete" textFill="WHITE">
+            <font>
+                <Font name="Arial Bold" size="14.0" />
+            </font>
+        </Button>
+        <TextField fx:id="txtNama" layoutX="275.0" layoutY="34.0" prefHeight="35.0" prefWidth="245.0" style="-fx-background-color: #EBECF0; -fx-border-color: #CCC; -fx-border-radius: 12px; -fx-background-radius: 12px;" />
+        <TextField fx:id="txtAlamat" layoutX="275.0" layoutY="109.0" prefHeight="35.0" prefWidth="245.0" style="-fx-background-color: #EBECF0; -fx-border-color: #CCC; -fx-border-radius: 12px; -fx-background-radius: 12px;" />
+        <TextField fx:id="txtKode" layoutX="579.0" layoutY="34.0" prefHeight="35.0" prefWidth="185.0" style="-fx-background-color: #EBECF0; -fx-border-color: #CCC; -fx-border-radius: 12px; -fx-background-radius: 12px;" />
+        <Label layoutX="35.0" layoutY="82.0" text="Password">
+            <font>
+                <Font name="Segoe UI Symbol" size="16.0" />
+            </font>
+        </Label>
+        <Label layoutX="35.0" layoutY="7.0" text="Username">
+            <font>
+                <Font name="Segoe UI Symbol" size="16.0" />
+            </font>
+        </Label>
+        <Label layoutX="275.0" layoutY="7.0" text="Nama Lengkap">
+            <font>
+                <Font name="Segoe UI Symbol" size="16.0" />
+            </font>
+        </Label>
+        <Label layoutX="275.0" layoutY="82.0" text="Alamat">
+            <font>
+                <Font name="Segoe UI Symbol" size="16.0" />
+            </font>
+        </Label>
+        <Label layoutX="579.0" layoutY="7.0" text="Kode">
+            <font>
+                <Font name="Segoe UI Symbol" size="16.0" />
+            </font>
+        </Label>
+        <Button fx:id="btnTambahUser" layoutX="579.0" layoutY="109.0" mnemonicParsing="false" onMouseClicked="#handleAdd" prefHeight="35.0" prefWidth="186.0" style="-fx-background-color: #1e1e1e; -fx-background-radius: 12px;" text="Insert" textFill="WHITE">
+            <font>
+                <Font name="Arial Bold" size="16.0" />
+            </font>
+        </Button>
+      <Label layoutX="33.0" layoutY="155.0" text="Status:">
          <font>
-            <Font name="Arial Bold" size="14.0" />
+            <Font name="Segoe UI Semibold" size="16.0" />
          </font>
-      </Button>
+      </Label>
+      <Label fx:id="lblStatus" layoutX="90.0" layoutY="155.0">
+         <font>
+            <Font name="Segoe UI Symbol" size="16.0" />
+         </font>
+      </Label>
+      <PasswordField fx:id="txtPassword" layoutX="33.0" layoutY="109.0" prefHeight="35.0" prefWidth="185.0" style="-fx-background-color: #EBECF0; -fx-border-color: #CCC; -fx-border-radius: 12px; -fx-background-radius: 12px;" />
     </children>
 </AnchorPane>

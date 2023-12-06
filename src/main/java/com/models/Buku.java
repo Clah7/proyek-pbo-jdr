@@ -5,7 +5,7 @@ public class Buku {
     private String nama_buku;
     private String penulis;
     private String penerbit;
-    private int tahun_terbit;
+    private Integer tahun_terbit;
 
     public void setIdBuku(String id_buku) {
         this.id_buku = id_buku;
@@ -39,11 +39,11 @@ public class Buku {
         return penerbit;
     }
 
-    public void setTahunTerbit(int tahun_terbit) {
+    public void setTahunTerbit(Integer tahun_terbit) {
         this.tahun_terbit = tahun_terbit;
     }
 
-    public int getTahunTerbit() {
+    public Integer getTahunTerbit() {
         return tahun_terbit;
     }
 }

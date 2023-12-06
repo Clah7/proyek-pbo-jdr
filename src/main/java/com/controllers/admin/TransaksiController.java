@@ -19,7 +19,7 @@ import java.sql.SQLException;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-public class DataBukuController implements Initializable {
+public class TransaksiController implements Initializable {
     @FXML
     private Button btnTambahBuku;
     @FXML
@@ -59,7 +59,7 @@ public class DataBukuController implements Initializable {
     private Connection connection;
     private Buku selectedBuku;
 
-    public DataBukuController() {
+    public TransaksiController() {
         connection = Koneksi.conDB();
     }
 
@@ -103,7 +103,7 @@ public class DataBukuController implements Initializable {
     @FXML
     private void handleAdd() {
         if (txtIdBuku.getText().isEmpty() || txtNamaBuku.getText().isEmpty() || txtPenulis.getText().isEmpty() || txtPenerbit.getText().isEmpty() || txtTahunTerbit.getText().isEmpty()) {
-            lblStatus.setTextFill(javafx.scene.paint.Color.TOMATO);
+            lblStatus.setTextFill(Color.TOMATO);
             lblStatus.setText("Enter all details");
         } else {
             addBuku();
@@ -145,7 +145,7 @@ public class DataBukuController implements Initializable {
     private void handleUpdate() {
         if (selectedBuku != null) {
             if (txtIdBuku.getText().isEmpty() || txtNamaBuku.getText().isEmpty() || txtPenulis.getText().isEmpty() || txtPenerbit.getText().isEmpty() || txtTahunTerbit.getText().isEmpty()) {
-                lblStatus.setTextFill(javafx.scene.paint.Color.TOMATO);
+                lblStatus.setTextFill(Color.TOMATO);
                 lblStatus.setText("Enter all details");
             } else {
                 updateBuku();
