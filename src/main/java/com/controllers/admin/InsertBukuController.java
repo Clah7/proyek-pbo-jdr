@@ -28,45 +28,5 @@ public class InsertBukuController {
         connection = Koneksi.conDB();
     }
 
-    @FXML
-    private void handleInsert() {
-        if (txtPenerbit.getText().isEmpty() || txtNamaBuku.getText().isEmpty() || txtPenulis.getText().isEmpty() || txtTahunTerbit.getText().isEmpty()) {
-            lblStatus.setTextFill(javafx.scene.paint.Color.TOMATO);
-            lblStatus.setText("Enter all details");
-        } else {
-            addBuku();
-        }
-    }
 
-    private String addBuku() {
-        try {
-            String st = "INSERT INTO book (nama_buku, penulis, penerbit, tahun_terbit) VALUES (?,?,?,?)";
-            preparedStatement = connection.prepareStatement(st);
-            preparedStatement.setString(1, txtNamaBuku.getText());
-            preparedStatement.setString(2, txtPenulis.getText());
-            preparedStatement.setString(3, txtPenerbit.getText());
-            preparedStatement.setString(4, txtTahunTerbit.getText());
-
-            preparedStatement.executeUpdate();
-            lblStatus.setTextFill(Color.GREEN);
-            lblStatus.setText("Added Successfully");
-
-            clearFields();
-            return "Success";
-
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-            lblStatus.setTextFill(Color.TOMATO);
-            lblStatus.setText(ex.getMessage());
-            return "Exception";
-        }
-    }
-
-
-    private void clearFields() {
-        txtNamaBuku.clear();
-        txtPenulis.clear();
-        txtPenerbit.clear();
-        txtTahunTerbit.clear();
-    }
 }

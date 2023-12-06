@@ -3,16 +3,19 @@
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 
-<TabPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<TabPane prefHeight="607.0" prefWidth="800.0" stylesheets="@../styling/header.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
     <tabs>
         <Tab closable="false" text="Dashboard">
-            <fx:include fx:id="DashboardContent" source="admin/Dashboard.fxml"/>
-        </Tab>
-        <Tab closable="false" text="Insert Buku">
-            <fx:include fx:id="InsertBukuContent" source="admin/InsertBuku.fxml"/>
+            <fx:include fx:id="DashboardContent" source="admin/Dashboard.fxml" />
         </Tab>
         <Tab closable="false" text="Insert Transaksi">
-            <fx:include fx:id="InsertTransaksi" source="admin/InsertTransaksi.fxml"/>
+            <fx:include fx:id="InsertTransaksi" source="admin/InsertTransaksi.fxml" />
+        </Tab>
+        <Tab closable="false" text="Data Buku">
+            <fx:include fx:id="DataBukuContent" source="admin/DaftarBuku.fxml" />
+        </Tab>
+        <Tab closable="false" text="Data Pengguna">
+            <fx:include fx:id="DataPenggunaContent" source="admin/DaftarPengguna.fxml" />
         </Tab>
     </tabs>
 </TabPane>
